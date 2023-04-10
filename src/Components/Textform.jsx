@@ -28,7 +28,7 @@ export default function Textform(props) {
               <h2 className='main-head'>{props.heading}</h2>
               <div className='mb-3 d-flex flex-column'>
                   {/* <label htmlFor="myBox" className='form-label'>Example TextArea</label> */}
-                    <textarea name="text" id="myBox" value={text} onChange={handleOnChange} rows="6" placeholder='Enter your text'></textarea>
+                    <textarea name="text" id="myBox" value={text} onChange={handleOnChange} rows="6" cols="10" placeholder='Enter your text'></textarea>
               </div>
               <button className="btn btn-primary fw-medium mx-2" onClick={handleUpClick}>Convert to Uppercase</button>
               <button className="btn btn-primary fw-medium mx-2" onClick={handleLowerClick}>Convert to lowercase</button>
