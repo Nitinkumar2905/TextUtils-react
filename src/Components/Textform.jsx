@@ -6,17 +6,37 @@ export default function Textform(props) {
         // console.log('uppercased');
         let newText = text.toUpperCase();
         setText(newText)
+        if(text===''){
+            props.showAlert('text box is empty', 'warning')
+        }
+        else{
+            props.showAlert('text has been uppercased', 'success')
+        }
     }
 
     const handleLowerClick=()=>{
         // console.log('uppercased');
         let newText = text.toLowerCase();
         setText(newText)
+        if(text===''){
+            props.showAlert('text box is empty', 'warning')
+        }
+        else{
+            props.showAlert('text has been lowercased', 'success')
+        }
+
     }
 
     const handleClearClick=()=>{
         let newText = "";
-        setText(newText)
+        if(text===''){
+            props.showAlert('text box is empty', 'warning')
+        }
+        else{
+            setText(newText)
+            props.showAlert('cleared', 'success')
+        }
+
     }
 
     const handleOnChange=(e)=>{
@@ -26,12 +46,26 @@ export default function Textform(props) {
     const handleCopy =()=>{
         let text = document.getElementById('myBox');
         text.select();
-        navigator.clipboard.writeText(text.value)
+        navigator.clipboard.writeText(text.value);
+        if(text===''){
+            props.showAlert('textbox is empty', 'warning')
+        }
+        else{
+            props.showAlert('text is copied', 'success')
+        }
+
     }
 
     const handleExtraSpace=()=>{
         let newText = text.split(/[ ]+/);
         setText(newText.join(""))
+        if(text===''){
+            props.showAlert('text box is empty', 'warning')
+        }
+        else{
+            props.showAlert('Extra space removed', 'success')
+        }
+
     }
     return (
       <>
@@ -41,11 +75,11 @@ export default function Textform(props) {
                   {/* <label htmlFor="myBox" className='form-label'>Example TextArea</label> */}
                     <textarea name="text" id="myBox" value={text} onChange={handleOnChange} rows="6" cols="10" placeholder='Enter your text'></textarea>
               </div>
-              <button className="btn btn-primary fw-medium mx-2" style={{backgroundColor:props.mode==='light'?'blue':'black'}} onClick={handleUpClick}>Convert to Uppercase</button>
-              <button className="btn btn-primary fw-medium mx-2" style={{backgroundColor:props.mode==='light'?'blue':'black'}} onClick={handleLowerClick}>Convert to lowercase</button>
-              <button className="btn btn-primary fw-medium mx-2" style={{backgroundColor:props.mode==='light'?'blue':'black'}} onClick={handleClearClick}>Clear</button>
-              <button className="btn btn-primary fw-medium mx-2" style={{backgroundColor:props.mode==='light'?'blue':'black'}} onClick={handleCopy}>Copy Text</button>
-              <button className="btn btn-primary fw-medium mx-2" style={{backgroundColor:props.mode==='light'?'blue':'black'}} onClick={handleExtraSpace}>Remove Extra Space</button>
+              <button className="btn btn-primary fw-medium mx-2" style={{backgroundColor:props.mode==='light'?'blue':'black', border:props.mode==='light'?'1px solid black':'1px solid white'}} onClick={handleUpClick}>Convert to Uppercase</button>
+              <button className="btn btn-primary fw-medium mx-2" style={{backgroundColor:props.mode==='light'?'blue':'black', border:props.mode==='light'?'1px solid black':'1px solid white'}} onClick={handleLowerClick}>Convert to lowercase</button>
+              <button className="btn btn-primary fw-medium mx-2" style={{backgroundColor:props.mode==='light'?'blue':'black', border:props.mode==='light'?'1px solid black':'1px solid white'}} onClick={handleClearClick}>Clear</button>
+              <button className="btn btn-primary fw-medium mx-2" style={{backgroundColor:props.mode==='light'?'blue':'black', border:props.mode==='light'?'1px solid black':'1px solid white'}} onClick={handleCopy}>Copy Text</button>
+              <button className="btn btn-primary fw-medium mx-2" style={{backgroundColor:props.mode==='light'?'blue':'black', border:props.mode==='light'?'1px solid black':'1px solid white'}} onClick={handleExtraSpace}>Remove Extra Space</button>
               {/* <button className="btn btn-primary fw-medium mx-2" onClick={handleCapitalize}>Capitalize</button> */}
           </div>
 
