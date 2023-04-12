@@ -51,7 +51,7 @@ export default function Textform(props) {
             props.showAlert('textbox is empty', 'warning')
         }
         else{
-            props.showAlert('text is copied', 'success')
+            props.showAlert('Copied to clipboard', 'success')
         }
 
     }
