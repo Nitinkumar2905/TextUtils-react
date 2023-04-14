@@ -7,7 +7,6 @@ import About from "./Components/About";
 import { BrowserRouter as Router,
         Routes, 
         Route, 
-        // Link
        } from "react-router-dom";
 
 function App() {
@@ -41,12 +40,9 @@ function App() {
         <Alert className="sticky-top" alert={alert} />
         <Routes>
         <Route path="/home" element={<Textform showAlert={showAlert} heading={'Enter your text to analyze'} mode={mode}/>}>
-            {/* <About /> */}
           </Route>
           <Route path="/about" element={<About/>}>
-            {/* <About /> */}
           </Route>
-
           <Route path="/" element={<Textform showAlert={showAlert} heading={'Enter your text to analyze'} mode={mode}/>}>
           </Route>
         </Routes>
