@@ -48,7 +48,7 @@ function App() {
           ></Route>
           <Route path="/about" element={<About />}></Route>
           <Route
-            path="/homeertgtr"
+            path="/home"
             element={
               <Textform
                 showAlert={showAlert}
